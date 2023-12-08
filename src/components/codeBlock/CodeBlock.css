@@ -1,0 +1,57 @@
+/*pre {*/
+/*    background-color: #2b2b2b; !* Dark background similar to WebStorm *!*/
+/*    color: #a9b7c6; !* Light text color for contrast *!*/
+/*    font-family: 'Fira Code', monospace; !* Monospaced font for code *!*/
+/*    padding: 10px;*/
+/*    border-radius: 4px;*/
+/*    overflow-x: auto; !* For horizontal scrolling if needed *!*/
+/*}*/
+
+pre code {
+    cursor: text;
+}
+
+
+pre code[contentEditable]::selection {
+    background-color: transparent; /* Or any color you prefer */
+    color: inherit; /* Optional, to keep the text color the same */
+}
+
+
+
+.code-editor {
+    position: relative;
+
+}
+
+.hidden-textarea {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    border: none;
+    padding: 10px; /* Adjust padding to match your code block */
+    font-family: monospace; /* Match the font of your code block */
+    font-size: 30px;
+    resize: none; /* Disable resizing */
+    overflow: hidden; /* Hide the scrollbar */
+    white-space: pre; /* Preserve whitespaces and line breaks */
+    word-wrap: break-word; /* Break long lines */
+}
+
+pre {
+    position: relative;
+    font-size: 30px;
+    color: white;
+}
+
+code {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px; /* Match padding with textarea */
+    pointer-events: none; /* Make the code block click-through */
+    font-size: 20px;
+}

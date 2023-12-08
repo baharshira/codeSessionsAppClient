@@ -1,0 +1,36 @@
+.code-block-page {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    padding-top: 20px;
+}
+
+
+.code-block-page-header {
+    width: 100%;
+    height: 10vh;
+    text-align: center;
+    padding: 0 2rem;
+    color: #e0e0e0;
+}
+
+/*.code-block-body {*/
+/*    border: 1px solid #676767;*/
+/*    border-radius: 10px;*/
+/*    width: 100%;*/
+/*    height: auto;*/
+/*    align-items: center;*/
+/*    padding: 20px;*/
+/*    box-shadow: rgba(0, 0, 0, 0.37) 5px 5px 20px;*/
+/*    text-align: left;*/
+/*}*/
+
+/*pre code {*/
+/*    background-color: #eee;*/
+/*    border: 1px solid #999;*/
+/*    display: block;*/
+/*    padding: 20px;*/
+/*}*/
+
