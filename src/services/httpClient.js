@@ -12,7 +12,7 @@ import axios from 'axios'
 
 export const sendRequest = async (params) => {
     try {
-        // Extracting method, url, and body from the parameters
+        // set the params object
         const {method, url, body} = params;
 
         // Variable to store the result of the HTTP request
