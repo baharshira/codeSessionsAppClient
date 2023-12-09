@@ -1,5 +1,15 @@
 import axios from 'axios'
 
+/**
+ * Send Request
+ * @description Sends an HTTP request based on the provided parameters.
+ * @param {Object} params - The parameters for the HTTP request.
+ * @param {string} params.method - The HTTP method (e.g., 'get', 'post').
+ * @param {string} params.url - The URL for the HTTP request.
+ * @param {Object} [params.body] - The request body (optional, applicable for 'post' method).
+ * @returns {Promise<Object>} A promise that resolves to an object containing the result and status of the HTTP request.
+ */
+
 export const sendRequest = async (params) => {
     try {
         const {method, url, body} = params;

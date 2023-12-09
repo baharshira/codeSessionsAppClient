@@ -6,10 +6,7 @@ import 'prismjs/components/prism-javascript';
 import './CodeBlock.css';
 
 
-//const socket = io('http://localhost:3001');
 const socket = io('https://code-session-app-server.onrender.com');
-
-
 
 
 const CodeBlock = (props) => {
@@ -42,15 +39,6 @@ const CodeBlock = (props) => {
         Prism.highlightAll();
     }, [props.code]); // Only re-run if props.code changes
 
-    // const handleCodeChange = () => {
-    //     props.setSolution(codeRef.current.textContent);
-    //     const saveSelectionResult = saveSelection();
-    //     console.log(`saveSelectionResult is: ${saveSelectionResult}`)
-    //     savedSelectionRef.current = saveSelectionResult;
-    //     // console.log(`Sending code change: ${codeRef.current.textContent}`)
-    //     socket.emit('codeChange', codeRef.current.textContent);
-    //     // No need to update state here
-    // };
 
     const handleCodeChange = () => {
         savedSelectionRef.current = saveSelection();

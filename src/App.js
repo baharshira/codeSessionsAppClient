@@ -6,10 +6,23 @@ import CodeBlockPage from "./pages/codeBlockPage/CodeBlockPage";
 
 function App() {
 
+    const [isStudent, setIsStudent] = useState(true);
     const [titles, setTitles] = useState([]);
     const [selectedCodeBlock, setSelectedCodeBlock] = useState(null);
 
 
+    /**
+     * Change User State
+     * @description Toggles the user mode between Student and Mentor.
+     */
+    const changeUserState = () => {
+        setIsStudent(prevState => !prevState);
+    }
+
+    /**
+     * Get Code Block Titles
+     * @description Fetches the list of code block titles from the server.
+     */
     const getTitles = async () => {
         try {
             const result = await getCodeBlocksTitles();
@@ -20,6 +33,12 @@ function App() {
         }
     };
 
+
+    /**
+     * Get Code Block
+     * @description Fetches the details of a specific code block by title from the server.
+     * @param {string} title - The title of the code block to fetch.
+     */
     const getCodeBlock = async (title) => {
         console.log(`inside getCodeBlockBody`)
         try {
@@ -43,11 +62,14 @@ function App() {
                 titles={titles}
                 setSelectedCodeBlock={setSelectedCodeBlock}
                 getCodeBlock={getCodeBlock}
+                changeUserState={changeUserState}
+                userState={isStudent ? 'Student' : 'Mentor'}
             />}
             {selectedCodeBlock &&
                 <CodeBlockPage
                     codeBlock={selectedCodeBlock}
                     setSelectedCodeBlock={setSelectedCodeBlock}
+                    isStudent={isStudent}
                 />
             }
         </div>
