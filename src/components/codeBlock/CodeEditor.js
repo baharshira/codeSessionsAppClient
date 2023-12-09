@@ -5,7 +5,8 @@ import 'prismjs/themes/prism-okaidia.css';
 import 'prismjs/components/prism-javascript';
 import './CodeBlock.css';
 
-const socket = io('http://localhost:3001');
+// const socket = io('http://localhost:3001');
+const socket = io('https://code-session-app-server.onrender.com');
 
 const CodeEditor = (props) => {
     const editorRef = useRef(null);
