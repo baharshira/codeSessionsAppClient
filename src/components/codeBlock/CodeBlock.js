@@ -1,14 +1,14 @@
 import React, {useEffect, useRef, useState} from 'react';
 import io from 'socket.io-client';
 
-// Importing Prism styles and custom CodeBlock styles
+// Importing Prism for highlighting
 import Prism from 'prismjs';
 import 'prismjs/themes/prism-okaidia.css'; // Example for the Okaidia theme
 import 'prismjs/components/prism-javascript';
 import './CodeBlock.css';
 
 // Initializing the socket connection
-const socket = io('https://code-session-app-server.onrender.com'); // The Server's app URL
+const socket = io('https://code-session-app-server.onrender.com'); // The Server's app URL, I used render to deploy the server
 
 // CodeBlock component for displaying and editing code
 const CodeBlock = (props) => {
@@ -69,7 +69,7 @@ const CodeBlock = (props) => {
         });
     }, []);
 
-    // Rendering the CodeBlock component with a content-editable code element
+    // Rendering the CodeBlock component with an editable code
     return (
         <pre>
             <code
