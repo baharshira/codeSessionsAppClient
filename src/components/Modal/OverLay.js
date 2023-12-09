@@ -5,7 +5,7 @@ const OverLay = (props) => {
     /**
      * Render OverLay
      * @description Renders an overlay background with the provided children.
-     * @returns {JSX.Element} The JSX element representing the OverLay.
+     * @return an element representing the OverLay.
      */
     return (
         <div className="overlay">
