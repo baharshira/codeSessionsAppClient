@@ -10,7 +10,7 @@ import Button from "../../components/Button/Button";
  * @param {Array<string>} props.titles - An array of code block titles to be displayed as buttons.
  * @param {Function} props.getCodeBlock - A function to handle code block selection.
  * @param {Function} props.changeUserState - A function to switch the user mode.
- * @returns {JSX.Element} The JSX element representing the Home Page.
+ * @returns The element representing the Home Page.
  */
 const HomePage = (props) => {
 

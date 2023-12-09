@@ -15,12 +15,13 @@ const socket = io('https://code-session-app-server.onrender.com');
  * @param {string} props.code - The code to be displayed and edited.
  * @param {Function} props.setSolution - A function to update the solution based on user input.
  * @param {boolean} props.isStudent - A boolean indicating whether the user is a student.
- * @returns {JSX.Element} The JSX element representing the Code Editor.
+ * @returns The element representing the Code Editor.
  */
 const CodeEditor = (props) => {
     const editorRef = useRef(null);
     const hiddenTextareaRef = useRef(null);
 
+    // Effect to initialize and highlight the code
     useEffect(() => {
         if (editorRef.current && hiddenTextareaRef.current) {
             editorRef.current.innerHTML = Prism.highlight(props.code, Prism.languages.javascript, 'javascript');
@@ -71,6 +72,7 @@ const CodeEditor = (props) => {
         });
     }, []);
 
+    // Rendering the CodeEditor component with a pre-formatted code block and a hidden textarea for editing
     return (
         <div className="code-editor">
             <pre ref={editorRef}>

@@ -1,12 +1,11 @@
 import {sendRequest} from "./httpClient";
 
-
+// API URLs for various Code Blocks operations
 const urls = {
     getCodeBlocksTitles: 'https://code-session-app-server.onrender.com/api/codeBlocks/titles',
     getCodeBlockByTitle: `https://code-session-app-server.onrender.com/api/codeBlocks/`,
     checkCodeBlockSolutionByTitle: 'https://code-session-app-server.onrender.com/api/codeBlocks/check/',
     saveCodeBlockSolutionByTitle: 'https://code-session-app-server.onrender.com/api/codeBlocks/save/'
-
 }
 
 /**

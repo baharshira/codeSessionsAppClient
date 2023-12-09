@@ -5,7 +5,7 @@ import {getCodeBlockByTitle, getCodeBlocksTitles} from "./services/codeBlocksSer
 import CodeBlockPage from "./pages/codeBlockPage/CodeBlockPage";
 
 function App() {
-
+    // State variables for managing user mode, code block titles, and selected code block
     const [isStudent, setIsStudent] = useState(true);
     const [titles, setTitles] = useState([]);
     const [selectedCodeBlock, setSelectedCodeBlock] = useState(null);
@@ -50,12 +50,13 @@ function App() {
         }
     };
 
-
+    // useEffect hook to fetch code block titles on component mount
     useEffect(() => {
         console.log(`inside use effect`)
         getTitles();
     }, []);
 
+    // Structure representing the main application
     return (
         <div className={'app'}>
             {!selectedCodeBlock && <HomePage

@@ -12,8 +12,13 @@ import axios from 'axios'
 
 export const sendRequest = async (params) => {
     try {
+        // Extracting method, url, and body from the parameters
         const {method, url, body} = params;
+
+        // Variable to store the result of the HTTP request
         let result;
+
+        // Switch statement to handle different HTTP methods
         switch (method) {
             case 'post':
                 result = await axios.post(url, body)
@@ -25,14 +30,21 @@ export const sendRequest = async (params) => {
                 throw new Error('not allowed http method');
 
         }
+        // Logging the result of the HTTP request
         console.log(`result of url: ${url} is`, JSON.stringify(result))
+
+        // Returning an object containing the result and status
         return {
             result: result.data,
             status: result.status
         };
+
     } catch (error) {
+        // Handling errors and logging details
         console.error(`Error sending request \n${error.stack}`)
         console.log(`error.response is: ${JSON.stringify(error.response)}`)
+
+        // Returning the error response
         return error.response;
     }
 

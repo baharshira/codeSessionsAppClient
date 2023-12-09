@@ -13,10 +13,10 @@ import Modal from "../../components/Modal/Modal";
  * @param {Object} props.codeBlock - An array containing details of the code block to be displayed.
  * @param {boolean} props.isStudent - A boolean indicating whether the user is a student.
  * @param {Function} props.setSelectedCodeBlock - A function to set the selected code block to null.
- * @returns {JSX.Element} The JSX element representing the Code Block Page.
+ * @returns The element representing the Code Block Page.
  */
 const CodeBlockPage = (props) => {
-
+    // State for managing the solution, modal state, and solution correctness
     const [solution, setSolution] = useState(props.codeBlock[0].code);
     const [modalOpen, setModalOpen] = useState(false);
     const [solutionCorrect, setSolutionCorrect] = useState(false);
@@ -47,8 +47,7 @@ const CodeBlockPage = (props) => {
 
     }
 
-
-
+    // Structure representing the Code Block Page
     return (
         <div
             className={'code-block-page'}

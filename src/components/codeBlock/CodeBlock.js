@@ -1,18 +1,21 @@
 import React, {useEffect, useRef, useState} from 'react';
 import io from 'socket.io-client';
+
+// Importing Prism styles and custom CodeBlock styles
 import Prism from 'prismjs';
 import 'prismjs/themes/prism-okaidia.css'; // Example for the Okaidia theme
 import 'prismjs/components/prism-javascript';
 import './CodeBlock.css';
 
+// Initializing the socket connection
+const socket = io('https://code-session-app-server.onrender.com'); // The Server's app URL
 
-const socket = io('https://code-session-app-server.onrender.com');
-
-
+// CodeBlock component for displaying and editing code
 const CodeBlock = (props) => {
     const codeRef = useRef(null);
     const savedSelectionRef = useRef(null);
 
+    // Function to save the current text selection
     const saveSelection = () => {
         if (window.getSelection) {
             const sel = window.getSelection();
@@ -23,6 +26,7 @@ const CodeBlock = (props) => {
         return null;
     };
 
+    // Function to restore a saved text selection
     const restoreSelection = (range, codeElement) => {
         if (range && window.getSelection && codeElement) {
             const sel = window.getSelection();
@@ -31,6 +35,7 @@ const CodeBlock = (props) => {
         }
     };
 
+    // Effect to set the initial code and highlight with Prism
     useEffect(() => {
         // Set initial code
         if (codeRef.current) {
@@ -39,13 +44,14 @@ const CodeBlock = (props) => {
         Prism.highlightAll();
     }, [props.code]); // Only re-run if props.code changes
 
-
+    // Event handler for code changes
     const handleCodeChange = () => {
         savedSelectionRef.current = saveSelection();
         props.setSolution(codeRef.current.textContent);
         socket.emit('codeChange', codeRef.current.textContent);
     };
 
+    // Effect to restore the text selection after each render
     useEffect(() => {
         if (savedSelectionRef.current && codeRef.current) {
             restoreSelection(savedSelectionRef.current, codeRef.current);
@@ -53,6 +59,7 @@ const CodeBlock = (props) => {
         }
     }); // This effect runs on every render
 
+    // Effect to handle code updates from the socket
     useEffect(() => {
         socket.on('codeUpdate', (updatedCode) => {
             if (codeRef.current) {
@@ -62,6 +69,7 @@ const CodeBlock = (props) => {
         });
     }, []);
 
+    // Rendering the CodeBlock component with a content-editable code element
     return (
         <pre>
             <code
