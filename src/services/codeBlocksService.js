@@ -2,10 +2,14 @@ import {sendRequest} from "./httpClient";
 
 
 const urls = {
-    getCodeBlocksTitles: 'http://localhost:3001/api/codeBlocks/titles',
-    getCodeBlockByTitle: `http://localhost:3001/api/codeBlocks/`,
-    checkCodeBlockSolutionByTitle: 'http://localhost:3001/api/codeBlocks/check/',
-    saveCodeBlockSolutionByTitle: 'http://localhost:3001/api/codeBlocks/save/'
+    // getCodeBlocksTitles: 'http://localhost:3001/api/codeBlocks/titles',
+    // getCodeBlockByTitle: `http://localhost:3001/api/codeBlocks/`,
+    // checkCodeBlockSolutionByTitle: 'http://localhost:3001/api/codeBlocks/check/',
+    // saveCodeBlockSolutionByTitle: 'http://localhost:3001/api/codeBlocks/save/'
+    getCodeBlocksTitles: 'https://code-session-app-server.onrender.com/api/codeBlocks/titles',
+    getCodeBlockByTitle: `https://code-session-app-server.onrender.com/api/codeBlocks/`,
+    checkCodeBlockSolutionByTitle: 'https://code-session-app-server.onrender.com/api/codeBlocks/check/',
+    saveCodeBlockSolutionByTitle: 'https://code-session-app-server.onrender.com/api/codeBlocks/save/'
 
 }
 
